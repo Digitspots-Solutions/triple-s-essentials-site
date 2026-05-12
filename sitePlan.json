@@ -1,0 +1,42 @@
+{
+  "businessName": "Triple S Essentials",
+  "industry": "Fashion and Creative Design",
+  "tone": "warm, creative, and inviting",
+  "tagline": "Where Style Meets Creativity",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to Triple S Essentials - Your Premier Fashion and Creative Design Destination in Ikorodu. We bring your style vision to life with bespoke designs, quality fabrics, and creative excellence. From everyday wear to special occasions, we craft pieces that make you stand out.",
+      "imagePrompt": "Vibrant Nigerian fashion boutique interior in Ikorodu Lagos, showcasing colorful African print fabrics, modern tailoring workspace, elegant clothing displays, warm ambient lighting, professional fashion design studio atmosphere, high-end retail space with contemporary Nigerian aesthetic",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "Triple S Essentials is Ikorodu's trusted name in fashion and creative design. Located in the heart of Agric, Owutu, we specialize in transforming fabric into art. Our team of skilled designers and tailors combine traditional craftsmanship with contemporary trends to deliver fashion that speaks to your personality. Whether you need custom tailoring, ready-to-wear pieces, or creative design consultation, we are committed to exceeding your expectations with every stitch. We pride ourselves on attention to detail, timely delivery, and creating lasting relationships with our clients across Ikorodu and beyond.",
+      "imagePrompt": "Professional Nigerian fashion designer working with fabrics in Lagos boutique, measuring tape around neck, sketching designs, colorful fabric swatches on table, warm natural lighting, authentic African fashion workspace, creative and inviting atmosphere",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Custom Tailoring & Alterations**\nPerfectly fitted garments tailored to your exact measurements. We specialize in native wear, corporate attire, evening gowns, and casual outfits that reflect your unique style.\n\n**Ready-to-Wear Collections**\nExplore our curated selection of fashion-forward pieces ready for immediate purchase. From trendy tops to elegant dresses, find quality garments that fit your lifestyle.\n\n**Creative Design Consultation**\nBring your fashion ideas to life with our expert design team. We work with you from concept to completion, ensuring your vision becomes reality.\n\n**Event & Bridal Fashion**\nMake your special day unforgettable with our bespoke bridal and event wear services. We create stunning pieces for weddings, owambe, and all celebrations.\n\n**Fabric Sourcing & Sales**\nAccess premium fabrics including Ankara, lace, silk, and more. We help you select the perfect materials for any project.",
+      "imagePrompt": "Collage of Nigerian fashion services: elegant wedding gowns on mannequins, colorful Ankara fabrics neatly arranged, tailor measuring client, beautiful ready-to-wear African print dresses displayed, modern Lagos fashion boutique setting, professional and vibrant",
+      "layout": "grid"
+    },
+    {
+      "id": "contact",
+      "name": "Visit Us Today",
+      "copy": "Ready to elevate your wardrobe? Visit Triple S Essentials at our Ikorodu showroom or reach out to discuss your fashion needs. We're here to make your style dreams a reality.\n\n**Location:** No 12 Isawo Road, Agric Owutu, Ikorodu North, Lagos\n\n**Phone:** 08066999675\n\n**Business Hours:**\nMonday - Saturday: 9:00 AM - 7:00 PM\nSunday: By Appointment\n\nWhatsApp us for instant consultation and to view our latest collections. We look forward to serving you!",
+      "imagePrompt": "Welcoming storefront of modern Nigerian fashion boutique on Isawo Road Ikorodu Lagos, bright signage, large display windows showing colorful clothing, clean exterior, Nigerian street setting, inviting entrance, daytime photography, professional retail establishment",
+      "layout": "default"
+    }
+  ],
+  "contact": {
+    "phone": "08066999675",
+    "email": "info@triplesessentials.com",
+    "address": "No 12 Isawo Road, Agric Owutu, Ikorodu North, Lagos",
+    "whatsapp": "https://wa.me/2348066999675"
+  }
+}
