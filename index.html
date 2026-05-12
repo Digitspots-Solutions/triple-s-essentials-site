@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple S Essentials - Where Style Meets Creativity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #030303;
+            --accent-color: #0269e4;
+            --bg-color: #F5F5F5;
+            --text-color: #080808;
+            --surface-color: #e7e7e7;
+            --secondary-accent: #f93977;
+            --font-display: 'Oswald', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --border-radius: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 245, 245, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-color);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--bg-color);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            color: var(--secondary-accent);
+            font-family: var(--font-display);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 0 var(--primary-color);
+        }
+
+        .cta-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--primary-color);
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 8px 8px 0 var(--accent-color);
+        }
+
+        .about-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 2rem;
+            background: var(--surface-color);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-container h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 6px 6px 0 var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            font-family: var(--font-display);
+        }
+
+        .service-card p {
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+        }
+
+        .contact-content {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 8px 8px 0 var(--secondary-accent);
+            text-align: left;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin: 2rem 0;
+        }
+
+        .contact-details p {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-details strong {
+            display: block;
+            font-family: var(--font-display);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 0 var(--primary-color);
+        }
+
+        .contact-links a:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--primary-color);
+        }
+
+        .contact-links a.whatsapp {
+            background: #25D366;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-container {
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content h2,
+            .services-container h2,
+            .contact-container h2 {
+                font-size: 2rem;
+            }
+
+            #about,
+            #services,
+            #contact {
+                padding: 48px 1rem;
+            }
+
+            .contact-content {
+                padding: 2rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+            }
+
+            .mobile-menu {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="logo">TRIPLE S ESSENTIALS</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <section id="hero">
+        <img src="https://images.pexels.com/photos/32495879/pexels-photo-32495879.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Triple S Essentials Fashion Boutique" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Triple S Essentials</h1>
+            <p class="tagline">Where Style Meets Creativity</p>
+            <p>Welcome to Triple S Essentials - Your Premier Fashion and Creative Design Destination in Ikorodu. We bring your style vision to life with bespoke designs, quality fabrics, and creative excellence. From everyday wear to special occasions, we craft pieces that make you stand out.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <img src="https://images.pexels.com/photos/7761833/pexels-photo-7761833.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="About Triple S Essentials" class="about-image">
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Triple S Essentials is Ikorodu's trusted name in fashion and creative design. Located in the heart of Agric, Owutu, we specialize in transforming fabric into art. Our team of skilled designers and tailors combine traditional craftsmanship with contemporary trends to deliver fashion that speaks to your personality.</p>
+                <p>Whether you need custom tailoring, ready-to-wear pieces, or creative design consultation, we are committed to exceeding your expectations with every stitch. We pride ourselves on attention to detail, timely delivery, and creating lasting relationships with our clients across Ikorodu and beyond.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Tailoring & Alterations</h3>
+                    <p>Perfectly fitted garments tailored to your exact measurements. We specialize in native wear, corporate attire, evening gowns, and casual outfits that reflect your unique style.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ready-to-Wear Collections</h3>
+                    <p>Explore our curated selection of fashion-forward pieces ready for immediate purchase. From trendy tops to elegant dresses, find quality garments that fit your lifestyle.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Creative Design Consultation</h3>
+                    <p>Bring your fashion ideas to life with our expert design team. We work with you from concept to completion, ensuring your vision becomes reality.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Event & Bridal Fashion</h3>
+                    <p>Make your special day unforgettable with our bespoke bridal and event wear services. We create stunning pieces for weddings, owambe, and all celebrations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fabric Sourcing & Sales</h3>
+                    <p>Access premium fabrics including Ankara, lace, silk, and more. We help you select the perfect materials for any project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Visit Us Today</h2>
+            <div class="contact-content">
+                <p>Ready to elevate your wardrobe? Visit Triple S Essentials at our Ikorodu showroom or reach out to discuss your fashion needs. We're here to make your style dreams a reality.</p>
+                
+                <div class="contact-details">
+                    <p><strong>Location:</strong> No 12 Isawo Road, Agric Owutu, Ikorodu North, Lagos</p>
+                    <p><strong>Phone:</strong> <a href="tel:08066999675" style="color: var(--accent-color); text-decoration: none;">08066999675</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:info@triplesessentials.com" style="color: var(--accent-color); text-decoration: none;">info@triplesessentials.com</a></p>
+                    <p><strong>Business Hours:</strong><br>
+                    Monday - Saturday: 9:00 AM - 7:00 PM<br>
+                    Sunday: By Appointment</p>
+                </div>
+
+                <p>WhatsApp us for instant consultation and to view our latest collections. We look forward to serving you!</p>
+
+                <div class="contact-links">
+                    <a href="tel:08066999675">Call Us</a>
+                    <a href="mailto:info@triplesessentials.com">Send Email</a>
+                    <a href="https://wa.me/2348066999675" class="whatsapp">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/2348066999675" class="whatsapp-float" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-5.252 1.409 1.409-5.234-0.321-0.527c-1.353-2.22-2.059-4.758-2.059-7.353 0-7.72 6.28-14 14-14s14 6.28 14 14-6.28 14-14 14zM23.5 19.25c-0.27-0.135-1.595-0.787-1.842-0.877-0.247-0.090-0.427-0.135-0.607 0.135s-0.697 0.877-0.855 1.057c-0.157 0.18-0.315 0.203-0.585 0.067s-1.14-0.42-2.172-1.34c-0.803-0.716-1.345-1.6-1.502-1.87s-0.017-0.415 0.118-0.55c0.122-0.122 0.27-0.315 0.405-0.472s0.18-0.27 0.27-0.45c0.090-0.18 0.045-0.337-0.022-0.472s-0.607-1.462-0.832-2.002c-0.22-0.525-0.443-0.454-0.607-0.462-0.157-0.008-0.337-0.010-0.517-0.010s-0.472 0.067-0.72 0.337c-0.247 0.27-0.945 0.922-0.945 2.25s0.967 2.61 1.102 2.79c0.135 0.18 1.905 2.908 4.615 4.078 0.645 0.278 1.148 0.445 1.54 0.57 0.648 0.205 1.237 0.176 1.703 0.107 0.52-0.078 1.595-0.652 1.82-1.282s0.225-1.17 0.157-1.282c-0.067-0.112-0.247-0.18-0.517-0.315z"/>
+        </svg>
+    </a>
+
+    <footer>
+        <p>&copy; 2024 Triple S Essentials. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
